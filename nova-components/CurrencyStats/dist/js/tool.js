@@ -169,7 +169,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* Scoped Styles */\n", ""]);
 
 // exports
 
@@ -667,10 +667,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            usd: 0.0,
+            eur: 0.0,
+            gbp: 0.0
+        };
+    },
     mounted: function mounted() {
-        //
+        var _this = this;
+
+        fetch("https://api.exchangeratesapi.io/latest?base=INR").then(function (response) {
+            return response.json();
+        }).then(function (response) {
+            _this.usd = response && response.rates && response.rates.USD ? response.rates.USD : 0.0;
+            _this.eur = response && response.rates && response.rates.EUR ? response.rates.EUR : 0.0;
+            _this.gbp = response && response.rates && response.rates.GBP ? response.rates.GBP : 0.0;
+        }).catch(function (error) {
+            _this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
     }
 });
 
@@ -685,62 +721,102 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("heading", { staticClass: "mb-6" }, [_vm._v("Currency Stats")]),
+      _c("heading", { staticClass: "mb-6" }, [_vm._v("1 INR is equal to:")]),
       _vm._v(" "),
-      _c(
-        "card",
-        {
-          staticClass: "bg-90 flex flex-col items-center justify-center",
-          staticStyle: { "min-height": "300px" }
-        },
-        [
+      _c("div", { staticClass: "flex flex-row -mx-6 mb-6" }, [
+        _c("div", { staticClass: "w-full px-6 sm:w-1/2 xl:w-1/3" }, [
           _c(
-            "svg",
+            "div",
             {
-              staticClass: "spin fill-80 mb-6",
-              attrs: {
-                width: "69",
-                height: "72",
-                viewBox: "0 0 23 24",
-                xmlns: "http://www.w3.org/2000/svg"
-              }
+              staticClass:
+                "flex items-center px-5 py-6 shadow-sm rounded-md bg-white"
             },
             [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M20.12 20.455A12.184 12.184 0 0 1 11.5 24a12.18 12.18 0 0 1-9.333-4.319c4.772 3.933 11.88 3.687 16.36-.738a7.571 7.571 0 0 0 0-10.8c-3.018-2.982-7.912-2.982-10.931 0a3.245 3.245 0 0 0 0 4.628 3.342 3.342 0 0 0 4.685 0 1.114 1.114 0 0 1 1.561 0 1.082 1.082 0 0 1 0 1.543 5.57 5.57 0 0 1-7.808 0 5.408 5.408 0 0 1 0-7.714c3.881-3.834 10.174-3.834 14.055 0a9.734 9.734 0 0 1 .03 13.855zM4.472 5.057a7.571 7.571 0 0 0 0 10.8c3.018 2.982 7.912 2.982 10.931 0a3.245 3.245 0 0 0 0-4.628 3.342 3.342 0 0 0-4.685 0 1.114 1.114 0 0 1-1.561 0 1.082 1.082 0 0 1 0-1.543 5.57 5.57 0 0 1 7.808 0 5.408 5.408 0 0 1 0 7.714c-3.881 3.834-10.174 3.834-14.055 0a9.734 9.734 0 0 1-.015-13.87C5.096 1.35 8.138 0 11.5 0c3.75 0 7.105 1.68 9.333 4.319C16.06.386 8.953.632 4.473 5.057z",
-                  "fill-rule": "evenodd"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "h1",
-            { staticClass: "text-white text-4xl text-90 font-light mb-6" },
-            [_vm._v("\n            We're in a black hole.\n        ")]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-white-50% text-lg" }, [
-            _vm._v(
-              "\n            You can edit this tool's component at:\n            "
-            ),
-            _c(
-              "code",
-              {
-                staticClass:
-                  "ml-1 border border-80 text-sm font-mono text-white bg-black rounded px-2 py-1"
-              },
-              [
-                _vm._v(
-                  "\n                /nova-components/CurrencyStats/resources/js/components/Tool.vue\n            "
+              _c(
+                "h1",
+                { staticClass: "p-3 rounded-full bg-indigo-600 bg-opacity-75" },
+                [_vm._v("\n                    $\n                ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mx-5" }, [
+                _c(
+                  "h4",
+                  { staticClass: "text-2xl font-semibold text-gray-700" },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.usd) +
+                        "\n                    "
+                    )
+                  ]
                 )
-              ]
-            )
-          ])
-        ]
-      )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-full px-6 sm:w-1/2 xl:w-1/3" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex items-center px-5 py-6 shadow-sm rounded-md bg-white"
+            },
+            [
+              _c(
+                "h1",
+                { staticClass: "p-3 rounded-full bg-indigo-600 bg-opacity-75" },
+                [_vm._v("\n                    €\n                ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mx-5" }, [
+                _c(
+                  "h4",
+                  { staticClass: "text-2xl font-semibold text-gray-700" },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.eur) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "w-full px-6 sm:w-1/2 xl:w-1/3" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex items-center px-5 py-6 shadow-sm rounded-md bg-white"
+            },
+            [
+              _c(
+                "h1",
+                { staticClass: "p-3 rounded-full bg-indigo-600 bg-opacity-75" },
+                [_vm._v("\n                    £\n                ")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mx-5" }, [
+                _c(
+                  "h4",
+                  { staticClass: "text-2xl font-semibold text-gray-700" },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.gbp) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              ])
+            ]
+          )
+        ])
+      ])
     ],
     1
   )
