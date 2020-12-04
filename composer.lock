@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51f87603fefd09374feb2940c364d86c",
+    "content-hash": "587458f34ac54af161b41a613fc0f763",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1064,6 +1064,39 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "lambdatest/currency-stats",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova-components/CurrencyStats",
+                "reference": "7e2fb8fa5a19e8c4fa2a8d665b710cb3952f448e"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lambdatest\\CurrencyStats\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lambdatest\\CurrencyStats\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ]
         },
         {
             "name": "laravel/framework",
